@@ -3,16 +3,27 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+    constructor(props){
+      super(props)
+      this.state = {
+        userInput: ''
+      }
+    }
+
+    changeUserInput(val){
+      this.setState({
+        userInput: val
+      })
+    }
+
+
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <input onChange={(e) => this.changeUserInput(e.target.value)} value={this.state.userInput}></input>
+        <h1>{this.state.userInput}</h1>
       </div>
     );
   }
